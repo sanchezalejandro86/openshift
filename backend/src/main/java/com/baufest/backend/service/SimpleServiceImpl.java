@@ -1,44 +1,42 @@
 package com.baufest.backend.service;
 
 import com.baufest.backend.model.SimpleBean;
+import com.baufest.backend.repository.SimpleBeanRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class SimpleServiceImpl implements SimpleService {
 
-    Map<Long, SimpleBean> db = new HashMap<>();
+    private final SimpleBeanRepository repository;
 
-    public SimpleServiceImpl() {
-        db.put(1L, new SimpleBean(1L, "Ale"));
-        db.put(2L, new SimpleBean(2L, "Juan"));
+    @Autowired
+    public SimpleServiceImpl(SimpleBeanRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     public List<SimpleBean> getAll() {
-        List<SimpleBean> beans = new ArrayList<>();
-        for(SimpleBean bean : db.values()){
-            beans.add(bean);
-        };
-        return beans;
+        return this.repository.findAll();
     }
 
     @Override
     public SimpleBean getById(long id) {
-        return db.get(id);
+        Optional<SimpleBean> simpleBean = this.repository.findById(id);
+        return simpleBean.isPresent() ? simpleBean.get() : null;
     }
 
     @Override
     public void save(SimpleBean bean) {
-        db.put(bean.getId(), bean);
+        this.repository.save(bean);
     }
 
     @Override
     public void update(long id, SimpleBean bean) {
-        db.get(id).setName(bean.getName());
+        bean.setId(id);
+        this.repository.save(bean);
     }
 }

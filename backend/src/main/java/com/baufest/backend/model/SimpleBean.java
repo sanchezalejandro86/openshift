@@ -1,12 +1,22 @@
 package com.baufest.backend.model;
 
+import javax.persistence.*;
+
+@Entity
 public class SimpleBean {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column
     private String name;
 
     public SimpleBean(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public SimpleBean() {
     }
 
     public Long getId() {
