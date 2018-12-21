@@ -15,7 +15,7 @@ public class SimpleServiceImpl implements SimpleService {
 
     public SimpleServiceImpl() {
         db.put(1L, new SimpleBean(1L, "Ale"));
-        db.put(1L, new SimpleBean(1L, "Juan"));
+        db.put(2L, new SimpleBean(2L, "Juan"));
     }
 
     @Override
