@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/simple")
+@RequestMapping(value = "simple")
 public class SimpleController {
 
     private SimpleService service;
