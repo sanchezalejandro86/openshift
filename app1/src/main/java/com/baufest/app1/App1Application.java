@@ -10,22 +10,19 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 
-//@Configuration
-//@ComponentScan
-//@EnableAutoConfiguration
 @SpringBootApplication
-public class BackendApplication extends SpringBootServletInitializer implements ApplicationListener<ContextRefreshedEvent> {
+public class App1Application extends SpringBootServletInitializer implements ApplicationListener<ContextRefreshedEvent> {
 
 	@Autowired
 	private SimpleBeanRepository simpleBeanRepository;
 
 	public static void main(String[] args) {
-		SpringApplication.run(BackendApplication.class, args);
+		SpringApplication.run(App1Application.class, args);
 	}
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(BackendApplication.class);
+		return application.sources(App1Application.class);
 	}
 
 	@Override

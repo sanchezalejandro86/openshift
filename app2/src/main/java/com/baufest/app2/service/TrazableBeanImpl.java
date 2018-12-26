@@ -1,0 +1,42 @@
+package com.baufest.app2.service;
+
+import com.baufest.app2.dto.BeanDTO;
+import com.baufest.app2.model.TrazableBean;
+import com.baufest.app2.repository.TrazableBeanRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+
+import java.sql.Date;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Optional;
+
+public class TrazableBeanImpl implements TrazableBeanService {
+
+    private TrazableBeanRepository repository;
+
+    @Autowired
+    public TrazableBeanImpl(TrazableBeanRepository repository) {
+        this.repository = repository;
+    }
+
+    @Override
+    public void save(BeanDTO bean) {
+        TrazableBean trazableBean = new TrazableBean();
+        trazableBean.setCreatedAt(new Date(Calendar.getInstance().getTime().getTime()));
+        trazableBean.setName(bean.getName());
+
+        this.repository.save(trazableBean);
+    }
+
+    @Override
+    public List<TrazableBean> getAll() {
+        return this.repository.findAll();
+    }
+
+    @Override
+    public TrazableBean getById(long id) {
+        Optional<TrazableBean> simpleBean = this.repository.findById(id);
+        return simpleBean.isPresent() ? simpleBean.get() : null;
+    }
+}

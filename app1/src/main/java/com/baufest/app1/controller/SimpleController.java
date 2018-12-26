@@ -43,4 +43,5 @@ public class SimpleController {
         this.service.update(id, bean);
     }
 
+
 }
