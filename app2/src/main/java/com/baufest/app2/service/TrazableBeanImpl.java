@@ -4,13 +4,14 @@ import com.baufest.app2.dto.BeanDTO;
 import com.baufest.app2.model.TrazableBean;
 import com.baufest.app2.repository.TrazableBeanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 
 import java.sql.Date;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TrazableBeanImpl implements TrazableBeanService {
 
     private TrazableBeanRepository repository;
