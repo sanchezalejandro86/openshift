@@ -1,7 +1,6 @@
 package com.baufest.app2.service;
 
 import com.baufest.app1.model.SimpleBean;
-import com.baufest.app2.dto.BeanDTO;
 import com.baufest.app2.model.TrazableBean;
 import com.baufest.app2.repository.TrazableBeanRepository;
 import org.springframework.beans.factory.annotation.Autowired;

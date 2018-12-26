@@ -1,7 +1,6 @@
 package com.baufest.app2.jms;
 
 import com.baufest.app1.model.SimpleBean;
-import com.baufest.app2.dto.BeanDTO;
 import com.baufest.app2.service.TrazableBeanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
