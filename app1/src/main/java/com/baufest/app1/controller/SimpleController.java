@@ -43,5 +43,10 @@ public class SimpleController {
         this.service.update(id, bean);
     }
 
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public void delete(@PathVariable("id") long id){
+        this.service.delete(id);
+    }
 
 }

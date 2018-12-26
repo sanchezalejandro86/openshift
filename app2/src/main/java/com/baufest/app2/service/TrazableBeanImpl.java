@@ -1,5 +1,6 @@
 package com.baufest.app2.service;
 
+import com.baufest.app1.model.SimpleBean;
 import com.baufest.app2.dto.BeanDTO;
 import com.baufest.app2.model.TrazableBean;
 import com.baufest.app2.repository.TrazableBeanRepository;
@@ -22,7 +23,7 @@ public class TrazableBeanImpl implements TrazableBeanService {
     }
 
     @Override
-    public void save(BeanDTO bean) {
+    public void save(SimpleBean bean) {
         TrazableBean trazableBean = new TrazableBean();
         trazableBean.setCreatedAt(new Date(Calendar.getInstance().getTime().getTime()));
         trazableBean.setName(bean.getName());

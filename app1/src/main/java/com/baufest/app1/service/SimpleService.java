@@ -13,4 +13,6 @@ public interface SimpleService {
     void save(SimpleBean bean);
 
     void update(long id, SimpleBean bean);
+
+    void delete(long id);
 }

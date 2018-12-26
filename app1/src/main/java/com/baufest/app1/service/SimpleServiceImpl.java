@@ -48,4 +48,9 @@ public class SimpleServiceImpl implements SimpleService {
         bean.setId(id);
         this.repository.save(bean);
     }
+
+    @Override
+    public void delete(long id) {
+        this.repository.deleteById(id);
+    }
 }

@@ -1,5 +1,6 @@
 package com.baufest.app2.jms;
 
+import com.baufest.app1.model.SimpleBean;
 import com.baufest.app2.dto.BeanDTO;
 import com.baufest.app2.service.TrazableBeanService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class BeanReceiver {
     }
 
     @JmsListener(destination = "${queue.beans}")
-    public void receiveMessage(BeanDTO beanDto) {
-        System.out.println("Received: " + beanDto);
-        this.trazableBeanService.save(beanDto);
+    public void receiveMessage(SimpleBean bean) {
+        System.out.println("Received: " + bean);
+        this.trazableBeanService.save(bean);
     }
 }
